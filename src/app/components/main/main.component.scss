@@ -1,0 +1,19 @@
+.body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.body__center__form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: grid;
+  width: 1;
+  row-gap: 20px;
+}
+.body__center__form__row {
+  min-width: 250px;
+  width: 100%;
+  display: flex;
+  row-gap: 20px;
+}

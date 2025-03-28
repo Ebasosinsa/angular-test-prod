@@ -1,0 +1,20 @@
+<div class="body">
+	<form class="body__center__form" [formGroup]="this.testform" enctype="multipart/form-data">
+		<div class-="body__center__form__row">
+			<h1>Обычное текстовое поле</h1>
+			<app-input-simple [formControlName]="'testtext'" [formGroup]="this.testform" [formSubmitted]="this.formSubmitted" controlid="testtext" type="text" title="Текстовое поле" pholder="Заполните поле"></app-input-simple>
+		</div>
+		<div class-="body__center__row">
+			<h1>Поле с дроп даун меню и поиском</h1>
+		</div>
+		<div class-="body__center__row">
+			1
+		</div>
+		<div class-="body__center__row">
+			<button (click)="sumbit()">otpravit'</button>
+		</div>
+		<div class-="body__center__row">
+			{{this.testform.value | json}}
+		</div>
+	</form>
+</div>

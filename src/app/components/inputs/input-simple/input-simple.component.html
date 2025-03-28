@@ -1,0 +1,12 @@
+<label class="input-body" for="{{controlid}}">
+	<div class="input-body__title" [class.show]="isShowed" [class.err]="isInvalid && formSubmitted">
+		@if(!(isInvalid && formSubmitted)){
+		<ng-container>{{title}}</ng-container>
+		} @else{
+		<app-input-error-message [control]="control" [formSubmitted]="this.formSubmitted" fieldName="{{title}}"></app-input-error-message>
+		}
+	</div>
+	<div class="input-body__main" [class.show]="isShowed " [class.err]="isInvalid && formSubmitted">
+		<input class="input-body__main__input" (blur)="onBlur()" (focus)="onFocus()" type="{{type}}" id="{{controlid}}" placeholder="{{pholder}}" [formControl]="control" [value]="value" (input)="onInputValueChange($event)" />
+	</div>
+</label>
