@@ -1,0 +1,140 @@
+.input-body {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  min-width: 250px;
+}
+
+.input-body__title {
+  text-align: left;
+  word-spacing: 2.5px;
+  font-family: "Roboto", "Inter", Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  line-height: 1.5;
+  height: 20px;
+  /*padding: 10px 20px 0px 20px;*/
+  padding-left: 10px;
+  transition: 0.3s;
+}
+
+.input-body__title.show {
+  color: #054e7e;
+}
+
+.input-body__title.err {
+  color: #d40000;
+}
+
+.input-body__main {
+  position: relative;
+  border: 1px Solid rgba(0, 0, 0, 0.15);
+  transition: border 0.4s;
+  border-radius: 0px;
+  transition: 0.3s;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.input-body__main__block {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 30px;
+  align-items: center;
+}
+
+.input-body__main__block__text {
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  padding: 5px 10px 5px 10px;
+  text-align: left;
+  word-spacing: 2.5px;
+  font-family: "Roboto", "Inter", Arial, sans-serif;
+  color: #054e7e;
+  font-size: 18px;
+  line-height: 1.5;
+  /*padding: 26px 0px 14px 20px;*/
+
+  border: 0px solid #2f66ff;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.input-body__main__block__arrow {
+}
+
+.input-body__main.show {
+  border: 1px Solid #0766a5;
+  background-color: rgba(63, 26, 26, 0.05);
+}
+
+.input-body__main.err {
+  border: 1px Solid #d40000;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+
+.input-body__main__input {
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 40px;
+  padding: 5px 10px 2px 10px;
+  text-align: left;
+  word-spacing: 2.5px;
+  font-family: "Roboto", "Inter", Arial, sans-serif;
+  color: #054e7e;
+  font-size: 18px;
+  line-height: 1.5;
+  /*padding: 26px 0px 14px 20px;*/
+  border: 0px solid #2f66ff;
+  transition: background-color 0.2s;
+}
+.dropdown-container {
+  position: relative; /* Позволяет дочернему элементу (меню) позиционироваться относительно него */
+}
+.dropdown-content {
+  position: absolute; /* Это сделает dropdown меню поверх другого контента */
+  top: 100%; /* Помещает меню непосредственно под кнопкой */
+  left: 0;
+  right: 0;
+  max-height: 287px; /* Достаточная высота для всего содержимого */
+  visibility: hidden;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  background-color: #f1f1f1;
+  z-index: 1000; /* Убедимся, что меню будет поверх других элементов */
+  overflow-y: auto;
+  box-shadow: 0px 4px 7px 2px rgba(34, 60, 80, 0.2);
+  border: 1px Solid rgba(0, 0, 0, 0.15);
+}
+/* Когда dropdown открывается, увеличиваем max-height */
+.dropdown-content.open {
+  visibility: visible;
+  border: 1px Solid #0766a5;
+  border-top: 0px;
+}
+.dropdown-content-search {
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-content-options {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 10px 10px 10px 10px;
+
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  text-align: left;
+  word-spacing: 2.5px;
+  font-family: "Roboto", "Inter", Arial, sans-serif;
+  color: #054e7e;
+  font-size: 18px;
+  line-height: 1.5;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content-options:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}

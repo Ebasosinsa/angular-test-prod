@@ -9,26 +9,27 @@ import {
 import { InputErrorMessageComponent } from '../input-error-message/input-error-message.component';
 
 @Component({
-  selector: 'app-input-simple',
+  selector: 'app-input-base',
   standalone: true,
   imports: [InputErrorMessageComponent, ReactiveFormsModule],
-  templateUrl: './input-simple.component.html',
-  styleUrl: './input-simple.component.scss',
+  templateUrl: './input-base.component.html',
+  styleUrl: './input-base.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputSimpleComponent),
+      useExisting: forwardRef(() => InputBaseComponent),
       multi: true,
     },
   ],
 })
-export class InputSimpleComponent implements ControlValueAccessor {
+export class InputBaseComponent implements ControlValueAccessor {
   @Input() formGroup!: FormGroup;
   @Input() controlid!: string;
   @Input() type!: string;
   @Input() title!: string;
   @Input() pholder!: string;
-  @Input() formSubmitted?: boolean;
+  @Input()
+  formSubmitted?: boolean;
 
   value: string | undefined;
   isShowed: boolean = false;
@@ -58,14 +59,6 @@ export class InputSimpleComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  public onFocus() {
-    this.isShowed = true;
-  }
-
-  public onBlur() {
-    this.isShowed = false;
-  }
-
   get control(): FormControl {
     return this.formGroup.get(this.controlid) as FormControl;
   }
@@ -75,5 +68,15 @@ export class InputSimpleComponent implements ControlValueAccessor {
       this.control.invalid &&
       (this.control.dirty || this.control.touched)
     );
+  }
+
+  onFocus() {
+    this.isShowed = true;
+    console.log('focus');
+  }
+
+  onBlur() {
+    this.isShowed = false;
+    console.log('blur');
   }
 }

@@ -1,0 +1,30 @@
+<label class="input-body" for="{{controlid}}">
+	<div class="input-body__title" [class.show]="isShowed" [class.err]="isInvalid && formSubmitted">
+		@if(!(isInvalid && formSubmitted)){
+		<ng-container>{{title}}</ng-container>
+		} @else{
+		<app-input-error-message [control]="control" [formSubmitted]="this.formSubmitted" fieldName="{{title}}"></app-input-error-message>
+		}
+	</div>
+	<div class="input-body__main" [class.show]="isShowed " [class.err]="isInvalid && formSubmitted" (click)="toggleDropdown()" #dropdown>
+		<div class="input-body__main__block">
+			<div class="input-body__main__block__text">{{selectedValue}}</div>
+			<div class="input-body__main__block__arrow">▼</div>
+		</div>
+	</div>
+	<div class="dropdown-container">
+		<div [class.open]="isShowed" class="dropdown-content">
+			<div class="dropdown-content-search">
+				<input class="input-body__main__input" type="{{type}}" id="{{controlid}}" placeholder="{{pholder}}" [formControl]="searchControl" [value]="value" (input)="filterOptions()" autocomplete="false" />
+				<!-- (blur)="onBlur()"   -->
+			</div>
+			@if(filteredOptions.length && isShowed){
+			<div class="dropdown-content-options" *ngFor="let option of filteredOptions" (click)="selectOption(option)">
+				{{option[this.optionskeys[0]]}}{{option[this.optionskeys[1]]}}
+			</div>
+			} @else{
+			<div class="dropdown-content-options">Данные не найдены...</div>
+			}
+		</div>
+	</div>
+</label>

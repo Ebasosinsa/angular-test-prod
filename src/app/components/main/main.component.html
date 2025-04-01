@@ -3,9 +3,21 @@
 		<div class-="body__center__form__row">
 			<h1>Обычное текстовое поле</h1>
 			<app-input-simple [formControlName]="'testtext'" [formGroup]="this.testform" [formSubmitted]="this.formSubmitted" controlid="testtext" type="text" title="Текстовое поле" pholder="Заполните поле"></app-input-simple>
+			<br />
+			{{"Значнеие: " + this.testform.value.testtext | json}}
 		</div>
-		<div class-="body__center__row">
+		<div class-="body__center__form__row">
 			<h1>Поле с дроп даун меню и поиском</h1>
+			<app-input-dropdown
+				[formControlName]="'testdropdown'"
+				[formGroup]="this.testform"
+				[formSubmitted]="this.formSubmitted"
+				[options]="mocDropdownMenu$"
+				controlid="testdropdown"
+				type="text"
+				title="Дроп Даун меню с поиском"
+				pholder="Например выбрана бабаклава"
+			></app-input-dropdown>
 		</div>
 		<div class-="body__center__row">
 			1
